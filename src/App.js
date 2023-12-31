@@ -1,6 +1,20 @@
+import React, { useState } from 'react';
 import "./App.css";
 import image from "./design/bg-img.jpeg";
+
 function App() {
+  const [email, setEmail] = useState('');
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleButtonClick = () => {
+    // Here you can call the function to send the email.
+    // This function depends on how you plan to send the email.
+    console.log(`Sending email to ${email}`);
+  };
+
   return (
     <div>
       <div
@@ -31,18 +45,37 @@ function App() {
                     </p>
                     <p className="mx-5">
                       {/* to add a margin-right in bootstrap use me-4 */}
-                      <i class="bi bi-check-circle-fill me-3"></i>Lorem ipsum
+                      <i className="bi bi-check-circle-fill me-3"></i>Lorem ipsum
                       dolor sit amet, consectetur
                     </p>
                     <p className="mx-5">
-                      <i class="bi bi-check-circle-fill me-3"></i>
+                      <i className="bi bi-check-circle-fill me-3"></i>
                       Lorem ipsum dolor sit amet, sucorereng
                     </p>
                     <p className="mx-5">
-                      <i class="bi bi-check-circle-fill me-3"></i>
+                      <i className="bi bi-check-circle-fill me-3"></i>
                       Lorem ipsum dolor sit amet,
                     </p>
-                    
+                    <div className="mb-3">
+                      {/* email address input */}
+                      <label htmlFor="" className="form-label mx-5">Email address</label>
+                      <input
+                        type="email"
+                        className="form-control mx-5"
+                        id=""
+                        aria-describedby="emailHelpId"
+                        placeholder="abc@mail.com"
+                        value={email}
+                        onChange={handleEmailChange}
+                      />
+                      <button
+                        type="button"
+                        className="btn btn-primary mx-5 mt-3"
+                        onClick={handleButtonClick}
+                      >
+                        Subscribe to monthly newsletter
+                      </button>
+                    </div>
                   </article>
                   {/* Sidebar or Related Information */}
                   <aside className="col-6">
