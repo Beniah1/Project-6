@@ -1,3 +1,31 @@
-body{
-  background-color: rgb(45, 19, 69);
+/* Styling for the entire body of the document. This includes a gradient background animation. */
+body {
+  background: linear-gradient(270deg, #e63b56, #ba3616, #000000, #242a19);
+  background-size: 600% 600%;
+  animation: Gradient 7s ease-in-out infinite;
 }
+
+/* Keyframes for the gradient animation used in the body styling. */
+@keyframes Gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Styling for the email input field. This includes adjusting the width of the input field. */
+.email-input {
+  width: 55%; /* Adjust this value to your liking */
+}
+
+/* Styling for the button. This includes setting the text color and background color. */
+.btn-clr{
+  color: white;
+  background-color: #e63b56;
+}
+
+/* Styling for the button when it is hovered over. This includes changing the background color. */
+.btn-clr:hover{
+  color: white;
+  background-color: #ec082a;
+}
+

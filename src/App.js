@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./App.css";
+import "./index.js";
 import image from "./design/bg-img.jpeg";
 
 function App() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
 
   const handleButtonClick = () => {
-    // Here you can call the function to send the email.
-    // This function depends on how you plan to send the email.
     console.log(`Sending email to ${email}`);
+    setIsButtonClicked(true);
   };
 
   return (
@@ -45,8 +46,8 @@ function App() {
                     </p>
                     <p className="mx-5">
                       {/* to add a margin-right in bootstrap use me-4 */}
-                      <i className="bi bi-check-circle-fill me-3"></i>Lorem ipsum
-                      dolor sit amet, consectetur
+                      <i className="bi bi-check-circle-fill me-3"></i>Lorem
+                      ipsum dolor sit amet, consectetur
                     </p>
                     <p className="mx-5">
                       <i className="bi bi-check-circle-fill me-3"></i>
@@ -58,29 +59,41 @@ function App() {
                     </p>
                     <div className="mb-3">
                       {/* email address input */}
-                      <label htmlFor="" className="form-label mx-5">Email address</label>
+                      <label htmlFor="" className="form-label mx-5">
+                        Email address
+                      </label>
                       <input
                         type="email"
-                        className="form-control mx-5"
+                        className="form-control mx-5 email-input"
                         id=""
                         aria-describedby="emailHelpId"
-                        placeholder="abc@mail.com"
+                        placeholder="email@mail.com"
                         value={email}
                         onChange={handleEmailChange}
                       />
                       <button
                         type="button"
-                        className="btn btn-primary mx-5 mt-3"
+                        className="btn btn-clr mx-5 mt-3"
                         onClick={handleButtonClick}
                       >
                         Subscribe to monthly newsletter
                       </button>
+                      {isButtonClicked && (
+                        <p>
+                          Thank you for subscribing! You will receive a monthly
+                          newsletter to {email}.
+                        </p>
+                      )}
                     </div>
                   </article>
                   {/* Sidebar or Related Information */}
                   <aside className="col-6">
                     {/* main img */}
-                    <img src={image} className="img-fluid rounded-5" alt="" />
+                    <img
+                      src={image}
+                      className="img-fluid rounded-5 hover-zoom mt-2 me-3"
+                      alt=""
+                    />{" "}
                   </aside>
                 </div>
               </div>
