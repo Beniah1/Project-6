@@ -17,6 +17,9 @@ body {
   width: 55%; /* Adjust this value to your liking */
 }
 
+.red-dot{
+  color: red;
+}
 /* Styling for the button. This includes setting the text color and background color. */
 .btn-clr{
   color: white;

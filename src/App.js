@@ -1,21 +1,41 @@
 import React, { useState } from "react";
 import "./App.css";
+import "./Modal.css";
 import "./index.js";
 import image from "./design/bg-img.jpeg";
 
-function App() {
+const App = () => {
+  // State for storing the email
   const [email, setEmail] = useState("");
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
 
+  // State for controlling the visibility of the modal
+  const [isActive, setIsActive] = useState(false);
+
+  // Handler for updating the email state when the email input field changes
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
 
-  const handleButtonClick = () => {
-    console.log(`Sending email to ${email}`);
-    setIsButtonClicked(true);
+  // Handler for showing the modal
+  const handleShow = () => {
+    setIsActive(true);
   };
 
+  // Handler for hiding the modal
+  const handleClose = () => {
+    setIsActive(false);
+  };
+
+  // Handler for the button click event
+  const handleButtonClick = () => {
+    // Here you can use the email value when the button is clicked
+    console.log(email);
+
+    // Refresh the page
+    window.location.reload();
+  };
+
+  // Render the component
   return (
     <div>
       <div
@@ -28,7 +48,7 @@ function App() {
             <section>
               <div className="container">
                 <div className="row">
-                  {/* Manjnin Article */}
+                  {/* Main Article */}
                   <article className="col-6">
                     <h1
                       className="text-center"
@@ -46,44 +66,59 @@ function App() {
                     </p>
                     <p className="mx-5">
                       {/* to add a margin-right in bootstrap use me-4 */}
-                      <i className="bi bi-check-circle-fill me-3"></i>Lorem
-                      ipsum dolor sit amet, consectetur
+                      <i className="bi bi-check-circle-fill me-3 red-dot"></i>
+                      Lorem ipsum dolor sit amet, consectetur
                     </p>
                     <p className="mx-5">
-                      <i className="bi bi-check-circle-fill me-3"></i>
+                      <i className="bi bi-check-circle-fill me-3 red-dot"></i>
                       Lorem ipsum dolor sit amet, sucorereng
                     </p>
                     <p className="mx-5">
-                      <i className="bi bi-check-circle-fill me-3"></i>
+                      <i className="bi bi-check-circle-fill me-3 red-dot"></i>
                       Lorem ipsum dolor sit amet,
                     </p>
                     <div className="mb-3">
-                      {/* email address input */}
-                      <label htmlFor="" className="form-label mx-5">
-                        Email address
-                      </label>
-                      <input
-                        type="email"
-                        className="form-control mx-5 email-input"
-                        id=""
-                        aria-describedby="emailHelpId"
-                        placeholder="email@mail.com"
-                        value={email}
-                        onChange={handleEmailChange}
-                      />
-                      <button
-                        type="button"
-                        className="btn btn-clr mx-5 mt-3"
-                        onClick={handleButtonClick}
-                      >
-                        Subscribe to monthly newsletter
-                      </button>
-                      {isButtonClicked && (
-                        <p>
-                          Thank you for subscribing! You will receive a monthly
-                          newsletter to {email}.
-                        </p>
-                      )}
+                      <section className={isActive ? "active" : ""}>
+                        <button className="show-modal" onClick={handleShow}>
+                          Subscribe to monthly news letters{" "}
+                        </button>
+                        <span className="overlay" onClick={handleClose}></span>
+                        <div className="modal-box">
+                          <i className="fa-regular fa-circle-check"></i>
+                          <h2>Completed</h2>
+                          <h3>
+                            You have successfully downloaded all the source code
+                            files.
+                          </h3>
+
+                          {/* Email input field */}
+                          <input
+                            type="email"
+                            className="email-input"
+                            placeholder="Enter your email"
+                            value={email}
+                            onChange={handleEmailChange}
+                          />
+
+                          <div className="buttons">
+                            {/* Renamed button */}
+                            <button
+                              className="send-btn"
+                              onClick={handleButtonClick}
+                            >
+                              Send
+                            </button>
+
+                            {/* Renamed button */}
+                            <button
+                              className="cancel-btn"
+                              onClick={handleClose}
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                      </section>
                     </div>
                   </article>
                   {/* Sidebar or Related Information */}
@@ -103,6 +138,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
