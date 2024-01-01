@@ -28,7 +28,7 @@ function App() {
             <section>
               <div className="container">
                 <div className="row">
-                  {/* Main Article */}
+                  {/* Manjnin Article */}
                   <article className="col-6">
                     <h1
                       className="text-center"
