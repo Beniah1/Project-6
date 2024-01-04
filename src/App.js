@@ -1,141 +1,69 @@
-import React, { useState } from "react";
-import "./App.css";
-import "./Modal.css";
-import "./index.js";
-import image from "./design/bg-img.jpeg";
+import React from "react";
+import "./index.css";
+import bgImage from "./design/bg-img.jpeg";
 
 const App = () => {
-  // State for storing the email
-  const [email, setEmail] = useState("");
-
-  // State for controlling the visibility of the modal
-  const [isActive, setIsActive] = useState(false);
-
-  // Handler for updating the email state when the email input field changes
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  // Handler for showing the modal
-  const handleShow = () => {
-    setIsActive(true);
-  };
-
-  // Handler for hiding the modal
-  const handleClose = () => {
-    setIsActive(false);
-  };
-
-  // Handler for the button click event
-  const handleButtonClick = () => {
-    // Here you can use the email value when the button is clicked
-    console.log(email);
-
-    // Refresh the page
-    window.location.reload();
-  };
-
-  // Render the component
   return (
-    <div>
-      <div
-        className="d-flex justify-content-center align-items-center"
-        style={{ height: "100vh" }}
-      >
-        <div className="bg-white shadow rounded-5 pt-3 pb-3 px-2 w-75">
-          <div className=""></div>
-          <main>
-            <section>
-              <div className="container">
-                <div className="row">
-                  {/* Main Article */}
-                  <article className="col-6">
-                    <h1
-                      className="text-center"
-                      style={{
-                        marginTop: "60px",
-                        fontSize: "3.4rem",
-                        fontWeight: "720",
-                      }}
-                    >
-                      {" "}
-                      Stay updated!
-                    </h1>
-                    <p className="mx-5 mt-4">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit:
-                    </p>
-                    <p className="mx-5">
-                      {/* to add a margin-right in bootstrap use me-4 */}
-                      <i className="bi bi-check-circle-fill me-3 red-dot"></i>
-                      Lorem ipsum dolor sit amet, consectetur
-                    </p>
-                    <p className="mx-5">
-                      <i className="bi bi-check-circle-fill me-3 red-dot"></i>
-                      Lorem ipsum dolor sit amet, sucorereng
-                    </p>
-                    <p className="mx-5">
-                      <i className="bi bi-check-circle-fill me-3 red-dot"></i>
-                      Lorem ipsum dolor sit amet,
-                    </p>
-                    <div className="mb-3">
-                      <section className={isActive ? "active" : ""}>
-                        <button className="show-modal" onClick={handleShow}>
-                          Subscribe to monthly news letters{" "}
-                        </button>
-                        <span className="overlay" onClick={handleClose}></span>
-                        <div className="modal-box">
-                          <i className="fa-regular fa-circle-check"></i>
-                          <h2>Completed</h2>
-                          <h3>
-                            You have successfully downloaded all the source code
-                            files.
-                          </h3>
+    <div className="bg">
+      {/* Main Content */}
+      <main>
+        {/* change left width of body information */}
+        <section className="wdh-bdy">
+          <article className="wth-img-1">
+            {/* Main Article */}
+            <p className="man-art">Home renovation!</p>
+            {/* Headline */}
+            <p className="hed">
+              Get renovation inspiration
+              <span className="break-word"> and tips in your inbox</span>
+            </p>
+            {/* Body text */}
+            <p className="bd-txt">
+              Stay up-to-date on the latest home renovation trends, product
+              launches, and DIY projects.
+              <span className="ctm-txt-clr">
+                Sign up below to receive our monthly email newsletter featuring:{" "}
+              </span>{" "}
+            </p>
+            {/* Home Pointers  */}
+            <div className="hm-pt">
+              <p>
+                {/* bs5 icons  */}
+                <i className="bi bi-check2-circle"></i>Inspiring before and
+                after makeover stories
+              </p>
 
-                          {/* Email input field */}
-                          <input
-                            type="email"
-                            className="email-input"
-                            placeholder="Enter your email"
-                            value={email}
-                            onChange={handleEmailChange}
-                          />
+              <p>
+                {/* bs5 icons  */}
+                <i className="bi bi-check2-circle"></i>Get design ideas and
+                money-saving tips
+              </p>
+              <p>
+                {/* bs5 icons  */}
+                <i className="bi bi-check2-circle"></i>
+                Never miss out on a great renovation
+              </p>
+            </div>
 
-                          <div className="buttons">
-                            {/* Renamed button */}
-                            <button
-                              className="send-btn"
-                              onClick={handleButtonClick}
-                            >
-                              Send
-                            </button>
-
-                            {/* Renamed button */}
-                            <button
-                              className="cancel-btn"
-                              onClick={handleClose}
-                            >
-                              Cancel
-                            </button>
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </article>
-                  {/* Sidebar or Related Information */}
-                  <aside className="col-6">
-                    {/* main img */}
-                    <img
-                      src={image}
-                      className="img-fluid rounded-5 hover-zoom mt-2 me-3"
-                      alt=""
-                    />{" "}
-                  </aside>
-                </div>
-              </div>
-            </section>
-          </main>
-        </div>
-      </div>
+            <div className="eml">
+              <p className="eml-ads">Email address</p>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email address"
+                className="eml-inpt"
+              />
+              <br></br>
+              <button> Subscribe to monthly newsletters</button>
+            </div>
+          </article>
+          <aside className="wth-2">
+            {/* img */}
+            <img src={bgImage} alt="Background" className="wth-img-2"/> {/* Use the imported image */}
+          </aside>
+        </section>
+      </main>
     </div>
   );
 };

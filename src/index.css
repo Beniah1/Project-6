@@ -7,28 +7,154 @@ body {
 
 /* Keyframes for the gradient animation used in the body styling. */
 @keyframes Gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-/* Styling for the email input field. This includes adjusting the width of the input field. */
-.email-input {
-  width: 55%; /* Adjust this value to your liking */
+.bg {
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 0 auto; /* Center horizontally */
+  width: 90vh;
+  height: 65vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center vertically */
+}
+/* changes the width of all the elements in the body */
+.wdh-bdy {
+  display: flex; /* Make the box a flex container */
+  justify-content: space-between; /* Space out the left and right text */
+  padding: 10px; /* Add some padding around the text */
+  /* border: 1px solid black; Add a border to the box */
 }
 
-.red-dot{
-  color: red;
+/* general fs & fm  */
+.man-art,
+.bd-txt,
+.hm-pt,
+.eml-ads,
+.hed {
+  font-size: 17px;
+  font-family: "Roboto", sans-serif;
 }
-/* Styling for the button. This includes setting the text color and background color. */
-.btn-clr{
-  color: white;
+
+/* custom text color */
+.ctm-txt-clr {
+  color: #e63b56;
+}
+
+/* custom icon color & space */
+.bi-check2-circle {
+  color: #000000;
+  margin-right: 10px;
+}
+
+.break-word {
+  display: block;
+}
+.man-art {
+  color: #e63b56;
+  font-weight: 900;
+  font-size: 40px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+.bd-txt {
+  width: 80%;
+  font-weight: 700;
+}
+.hm-pt {
+  color: #e63b56;
+}
+.hm-pt p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 52%;
+  white-space: nowrap;
+}
+
+.eml {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.eml-inpt {
+  width: 91%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #e63b56;
+  padding-left: 10px;
+  margin-top: -5px;
+}
+.eml-ads {
+  font-size: 13px;
+  font-weight: 600;
+}
+/* width size of two side  */
+.wth-img-1 {
+  width: auto;
+  /* border: 1px solid black; */
+}
+.wth-img-2 {
+  width: 100%;
+  height: auto;
+  margin-top: 30%;
+  border-radius: 1rem;
+}
+
+.wth-2 {
+  background: repeating-linear-gradient(
+    45deg,
+    #e63b56,
+    #e63b56 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  padding: 20px;
+  border-radius: 1rem;
+}
+/* ========== */
+button {
   background-color: #e63b56;
-}
-
-/* Styling for the button when it is hovered over. This includes changing the background color. */
-.btn-clr:hover{
+  border: none;
   color: white;
-  background-color: #ec082a;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  width: 95%;
+  transition: all 0.3s ease; /* Add transition for smooth change */
 }
 
+button:hover {
+  background-color: #f6082c;
+}
+
+
+
+@media (max-width: 768px) {
+  .wdh-bdy {
+    flex-direction: column;
+  }
+  .bg{
+    width: 100vw;
+    height: 100vh;
+    margin-top: 0px;
+  }
+  
+}
